@@ -28,7 +28,6 @@ export async function signIn(user: signInInterface) {
 	if (!userExists) return null;
 
 	const verify = bcrypt.compareSync(password, userExists.password);
-	console.log(verify);
 	if (!verify) return null;
 
 	const token = uuidv4();

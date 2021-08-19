@@ -10,13 +10,15 @@ import connectDatabase from "./database";
 import * as userController from "./controllers/userController";
 import * as pokemonController from "./controllers/pokemonController";
 
+import authenticate from "./middlewares/authenticate";
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.post("/signUp", userController.signUp);
 app.post("/signIn", userController.signIn);
-app.get("/pokemons", pokemonController.getPokemons);
+app.get("/pokemons", authenticate, pokemonController.getPokemons);
 
 export async function init () {
 	await connectDatabase();

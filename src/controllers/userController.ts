@@ -13,6 +13,9 @@ export async function signUp (req: Request, res: Response) {
 		if (validate.error) return res.sendStatus(400);
 
 		const users = await userService.signUp(user);
+		if (!users) return res.sendStatus(409);
+
+		return res.sendStatus(201);
 
 	} catch (err) {
 		console.error(err);

@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/signUp", userController.signUp);
+app.post("/signUp", userController.signUp);
 
 export async function init () {
 	await connectDatabase();

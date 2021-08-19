@@ -19,6 +19,8 @@ app.use(express.json());
 app.post("/signUp", userController.signUp);
 app.post("/signIn", userController.signIn);
 app.get("/pokemons", authenticate, pokemonController.getPokemons);
+app.post("/my-pokemons/:id/add", authenticate, pokemonController.addPokemon);
+app.post("/my-pokemons/:id/remove", authenticate, pokemonController.removePokemon);
 
 export async function init () {
 	await connectDatabase();

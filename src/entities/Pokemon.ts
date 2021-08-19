@@ -1,0 +1,28 @@
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+
+@Entity("pokemon")
+export default class Pokemon {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column()
+  number: string;
+
+  @Column()
+  image: string;
+
+  @Column()
+  weight: number;
+
+  @Column()
+  height: number;
+
+  @Column()
+  baseExp: number;
+
+  @Column()
+  description: string;
+}

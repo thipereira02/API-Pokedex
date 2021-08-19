@@ -1,5 +1,5 @@
 /* eslint-disable semi */
-export default interface userInterface{
+export default interface signUpInterface{
     email: string;
     password: string;
     confirmPassword: string;

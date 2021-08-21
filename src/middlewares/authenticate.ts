@@ -11,5 +11,7 @@ export default async function authenticate(req: Request, res: Response, next: Ne
 	const user = await sessionService.findUser(token);
 	if (!user) return res.sendStatus(401);
 
+	res.locals.user = user;
+
 	next();
 }
